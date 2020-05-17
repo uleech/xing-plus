@@ -7,6 +7,9 @@ from xing import xacom
 from xing.logger import Logger
 from datetime import datetime
 import sys, traceback
+from xing.logger import LoggerSetting
+
+LoggerSetting.FILE = "xingplus-xaquery.log"
 
 log = Logger(__name__)
 class _XAQueryEvents:
@@ -229,8 +232,8 @@ class Query:
 				input = {"InBlock": {}}
 			if not isNext:
 				self.query.reset()
-				self._parseInput(input)
-				self._parseOutput(output)
+			self._parseInput(input)
+			self._parseOutput(output)
 	# 			Query.sleep()
 	
 			#input setting

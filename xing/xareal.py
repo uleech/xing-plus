@@ -7,6 +7,10 @@ import pythoncom
 import win32com.client
 
 from xing.logger import Logger
+from xing.logger import LoggerSetting
+
+
+LoggerSetting.FILE = "xingplus-real.log"
 
 log = Logger(__name__)
 
@@ -23,9 +27,13 @@ class _XARealEvents:
         return output
 
     def OnReceiveRealData(self, szTrCode):
-        log.debug(" - OnReceiveRealData (%s)" % szTrCode )
-        log.debug(self._putData(szTrCode))
-        self.queue.put(self._putData(szTrCode))
+        try :
+            log.debug(" - OnReceiveRealData (%s)" % szTrCode )
+            log.debug(self._putData(szTrCode))
+        except Exception as e:
+            print(e)
+        finally:
+            self.queue.put(self._putData(szTrCode))
 
 class Real(threading.Thread):
     """실시간 TR을 모니터링하는 작업 클래스

@@ -8,6 +8,9 @@ from getpass import getpass
 from xing import xacom
 from xing.xaquery import Query
 from xing.logger import Logger
+from xing.logger import LoggerSetting
+
+LoggerSetting.FILE = "xingplus-xasession.log"
 log = Logger(__name__)
 
 class _XASessionEvents:
