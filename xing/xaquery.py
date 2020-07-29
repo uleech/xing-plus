@@ -288,7 +288,7 @@ class Query:
 					startIndex = len(df)
 					for p in range(0,self.query.GetBlockCount(self.type + k)):
 						for col in list(df.columns.values):
-							df.set_value(p + startIndex, col, self.query.GetFieldData(self.type + k, col, p))
+							df.at[p + startIndex, col] =  self.query.GetFieldData(self.type + k, col, p)
 				else:
 					for col in v.keys():
 						v[col] = self.query.GetFieldData(self.type + k, col, 0)
