@@ -26,5 +26,5 @@ setup(
     packages=find_packages(),
     package_dir={"xing": "xing", "res": "xing/res"},
     package_data={"xing": ["res/*.res"]},
-    install_requires=["pandas>=0.17.0", "ta-lib>=0.4.9"]
+    install_requires=["pandas>=0.17.0"]
 )
