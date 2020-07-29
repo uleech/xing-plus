@@ -28,8 +28,9 @@ class _XARealEvents:
 
     def OnReceiveRealData(self, szTrCode):
         try :
-            log.debug(" - OnReceiveRealData (%s)" % szTrCode )
-            log.debug(self._putData(szTrCode))
+            v = 1
+            #log.debug(" - OnReceiveRealData (%s)" % szTrCode )
+            #log.debug(self._putData(szTrCode))
         except Exception as e:
             print(e)
         finally:
@@ -234,3 +235,6 @@ class RealManager:
                     data.append(queue.get())
             if cb:
                 cb(k, data)
+                
+            if data.__len__() > 0:
+                del data

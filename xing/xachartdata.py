@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from pandas import DataFrame, Series
-from talib import abstract
+#from talib import abstract
 from xing.xaquery import Query
 from xing import xacom
 
@@ -137,6 +137,7 @@ class Chartdata:
         return chartType
 
     # 지표 계산 (단위건)
+    '''
     def _process(self, v, param):
         data = {
             "open" : v["open"].astype(float),
@@ -178,7 +179,7 @@ class Chartdata:
         # RSI (Relative Strength Index)
         if "RSI" in param:
             v["RSI"] = Series(abstract.RSI(data, param["RSI"]), index=v.index)
-
+    '''
 
     # 지표 계산
     def process(self, *argv):

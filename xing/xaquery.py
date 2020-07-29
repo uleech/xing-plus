@@ -259,9 +259,14 @@ class Query:
 			#call request
 	# 		Query._sleepTime()
 			Query.sleep(isNext)
-			if hasattr(self, "service"):
+			if hasattr(self, "service") :
 				log.info(" - Call requestService")
 				requestCode = self.query.RequestService(self.type, self.service)
+    
+			elif self.type is 't1857':
+				log.info(" - Call requestService")
+				requestCode = self.query.RequestService(self.type, "")
+    
 			else:
 				log.info(" - Call request (isNext:%s)" % isNext)
 				requestCode = self.query.Request(isNext)
